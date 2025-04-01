@@ -27,22 +27,24 @@ require_once 'components/header.php';
         </div>
       </div>
     </section>
+      <?php
+      require_once 'db/qnaspracovanie.php'; /*/ I just insert it right before it reads /*/
+      ?>
       <section class="container">
-      <div class="accordion">
-        <div class="question">Ako môžem prísť do kontaktu s ostatnými?</div>
-        <div class="answer">Máme stránku určenú len na tento účel, všetky informácie nájdete v navigačnom paneli v časti „Kontakt“ alebo v footere tejto stránky.</div>
-      </div>
-      <div class="accordion">
-        <div class="question">Je to legálne?</div>
-        <div class="answer">Áno, určite! ZA/UM nevydalo vyhlásenie týkajúce sa neoficiálneho obsahu a my si nenárokujeme žiadne vlastníctvo. Z právneho hľadiska sme bez škvŕn.</div>
-      </div>
-      <div class="accordion">
-        <div class="question">Existujú aj iné stránky, ako je táto?</div>
-        <div class="answer">Som si istý, že podobných wiki a fanúšikovských stránok je oveľa viac, ale som si istý, že táto bude dostatočne jedinečná.</div>
-      </div>
-    </section>
-    </section>
-  </div>
+          <?php if (!empty($qnaItems)): ?> <!-- This ust basically checks if there even anything to display -->
+              <?php foreach ($qnaItems as $item): ?> <!--Iterates through each item -->
+                  <div class="accordion">
+                      <div class="question"><?= htmlspecialchars($item['question']) ?></div>
+                      <div class="answer"><?= htmlspecialchars($item['answer']) ?></div>
+                  </div>
+              <?php endforeach; ?>
+          <?php else: ?> <!-- If nothing was found, still inserts something -->
+              <div class="accordion">
+                  <div class="question">Momentálne žiadne otázky</div>
+                  <div class="answer">Skontrolujte neskôr alebo nám napíšte svoju otázku.</div>
+              </div>
+          <?php endif; ?>
+      </section>
   </main>
 <?php
 require_once 'components/footer.php';
