@@ -13,27 +13,27 @@
     background-blend-mode: lighten;
   }
   #portfolio-1{
-    background-image: url('../img/portfolio1.jpg');
+    background-image: url('../img/portfolio/1.jpg');
   }
   #portfolio-2{
-    background-image: url('../img/portfolio2.jpg');
+    background-image: url('../img/portfolio/2.jpg');
   }
   #portfolio-3{
-    background-image: url('../img/portfolio3.jpg');
+    background-image: url('../img/portfolio/3.jpg');
   }
   #portfolio-4{
-    background-image: url('../img/portfolio4.jpg');
+    background-image: url('../img/portfolio/4.jpg');
   }
   #portfolio-5{
-    background-image: url('../img/portfolio5.jpg');
+    background-image: url('../img/portfolio/5.jpg');
   }
   #portfolio-6{
-    background-image: url('../img/portfolio6.jpg');
+    background-image: url('../img/portfolio/6.jpg');
   }
   #portfolio-7{
-    background-image: url('../img/portfolio7.jpg');
+    background-image: url('../img/portfolio/7.jpg');
   }
   #portfolio-8{
-    background-image: url('../img/portfolio8.jpg');
+    background-image: url('../img/portfolio/8.jpg');
   }
   

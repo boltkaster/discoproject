@@ -1,27 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
 <?php
 require_once 'components/header.php';
-require_once 'components/navigation.php';
 ?>
     <main>
       <section class="slides-container">
         <div class="slide fade">
-          <img src="img/banner1.jpg">
+          <img src="img/revachol.jpg">
           <div class="slide-text">
-            Prvý nadpis
+            Disco Elysium
           </div>
         </div>
         
         <div class="slide fade">
-          <img src="img/banner2.jpg">
+          <img src="img/concept.jpg">
           <div class="slide-text">
-            Druhý nadpis
+            Disco Elysium
           </div>
         </div>
         
         <div class="slide fade">
-          <img src="img/banner3.jpg">
+          <img src="img/grid-5.png">
           <div class="slide-text">
-            Tretí nadpis
+            Disco Elysium
           </div>
         </div>
         
@@ -32,18 +42,18 @@ require_once 'components/navigation.php';
       <section class="container">
         <div class="row">
           <div class="col-100 text-center">
-              <p><strong><em>Elit culpa id mollit irure sit. Ex ut et ea esse culpa officia ea incididunt elit velit veniam qui. Mollit deserunt culpa incididunt laborum commodo in culpa.</em></strong></p>
+              <p><strong><em>"I am a relatively median lifeform, while you are extreme, all-engulfing madness. A volatile simian nervous system, ominously new to the planet."</em></strong></p>
           </div>
         </div>
       </section>
-      <section class="container">
+      <section class="container" style="background-color:black !important">
         <div class="row">
           <div class="col-50">
-            <h2>Mollit cupidatat velit quis irure non eiusmod culpa cillum velit magna est aliquip.</h2>
+            <h2 align="center">Disco Elysium</h2>
           </div>
           <div class="col-50">
-            <p>Nulla dolore sit esse pariatur culpa sint nulla fugiat nulla ut. Sit adipisicing fugiat id consequat qui est. Nulla ea aliquip culpa nulla mollit do excepteur ex ullamco consequat tempor consectetur. Tempor et ea voluptate irure est magna magna reprehenderit qui non dolore. Consequat id ad cillum do qui. Proident ipsum enim eiusmod fugiat quis anim consequat ullamco mollit excepteur. Eiusmod eu ad irure anim velit laborum commodo nostrud pariatur id ea ad.</p>
-            <p>Incididunt pariatur ipsum in culpa sit cillum consequat nostrud do. Esse commodo ad qui ea. Pariatur elit mollit deserunt aute do culpa eu veniam pariatur in adipisicing qui adipisicing irure. Est minim sint ipsum nulla eiusmod. Amet do officia consectetur labore. Id aute labore culpa aliquip. Adipisicing mollit excepteur Lorem quis elit ipsum irure quis occaecat qui consectetur ad irure dolor.</p>
+            <p>is a 2019 role-playing video game developed and published by ZA/UM. Inspired by Infinity Engine-era games, particularly Planescape: Torment, the game was written and designed by a team led by Estonian novelist Robert Kurvitz and features an art style based on oil painting with music by the English band British Sea Power.</p>
+            <p>Disco Elysium is a non-traditional role-playing game featuring very little combat. Instead, events are resolved through skill checks and dialogue trees via a system of 24 skills that represent different aspects of the protagonist, such as his perception and pain threshold. In addition, a system called the Thought Cabinet represents his other ideologies and personality traits, with players having the ability to freely support or suppress them. The game is based on a tabletop role-playing game setting that Kurvitz had previously created, later forming ZA/UM in 2016 to adapt it into a video game.</p>
           </div>
         </div>
       </section>

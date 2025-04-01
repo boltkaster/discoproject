@@ -4,6 +4,8 @@
 }
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 /*ŠTÝLY PRE FONTY*/
 h1{
@@ -42,17 +44,19 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: #1a1a1a;
   z-index: 1; 
-  max-width: 100%; 
+  max-width: 100%;
+  color: #ffffff;
 }
 .main-menu li{
   display:inline;
   margin-left: 20px;
+  color: #ffffff;
 }
 .main-menu li a{
   text-decoration: none;
-  color:black;
+  color: #ffffff;
 }
 .main-menu li:hover a{
  text-decoration: underline;
@@ -64,6 +68,9 @@ header{
 /*ŠTÝLY PRE LAYOUT*/
 .container{
   padding:3% 10% 3% 10%;
+  color:white;
+  background-color: #1a1a1a !important;
+  text-shadow: 2px 2px 2px black;
 }
 .row{
   display:flex;
@@ -117,6 +124,11 @@ footer p a{
   main{
     margin-top:0px;
   }
+
+  .main-menu.responsive a:hover {
+    color: #bb86fc !important;
+    background-color: #1e1e1e;
+  }
   h1{
     font-size:40px;
   }
@@ -134,6 +146,10 @@ footer p a{
   }
   .hamburger {
     display: inline;
+    color: #e0e0e0;
+  }
+  .hamburger:hover {
+    color: #bb86fc;
   }
   .main-header{
     position:relative;
@@ -154,12 +170,16 @@ footer p a{
   .main-menu.responsive {
     display: block;
     position: absolute;
-    background-color: #f7f7f7;
+    background-color: #121212;
     width:100%;
     top:60px;
     left:0px;
     padding-top:20px;
     padding-bottom:20px;
+    color: #e0e0e0 !important;
+  }
+  .main-menu.responsive a {
+    color: #e0e0e0 !important;
   }
   .main-menu.responsive li{
     display: block;

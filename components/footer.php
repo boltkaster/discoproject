@@ -2,20 +2,19 @@
     <div class="row">
         <div class="col-25">
             <h4>Kto sme</h4>
-            <p>Laboris duis ut est fugiat et reprehenderit magna labore aute.</p>
-            <p>Laboris duis ut est fugiat et reprehenderit magna labore aute.</p>
-            <p>Laboris duis ut est fugiat et reprehenderit magna labore aute.</p>
+            <p>Sme jednočlenná kapela, ktorá robí túto stránku pre univerzitný projekt.</p>
+            <p>Zahrajte si Disco Elysium, naozaj skvelá hra.</p>
         </div>
         <div class="col-25 text-left">
             <h4>Kontaktujte nás</h4>
-            <p><i class="fa fa-envelope" aria-hidden="true"><a href="mailto:livia.kelebercova@gmail.com"> livia.kelebercova@gmail.com</a></i></p>
-            <p><i class="fa fa-phone" aria-hidden="true"><a href="tel:0909500600"> 0909500600</a></i></p>
+            <p><i class="fa fa-envelope" aria-hidden="true"><a href="mailto:volodymyr.ivanov@student.ukf.sk"> volodymyr.ivanov@student.ukf.sk</a></i></p>
+            <p><i class="fa fa-phone" aria-hidden="true"><a href="tel:0952235337"> 095 223 5337</a></i></p>
         </div>
         <div class="col-25">
             <h4>Rýchle odkazy</h4>
-            <p><a href="/">Domov</a></p>
-            <p><a href="/qna">Q&A</a></p>
-            <p><a href="/kontakt">Kontakt</a></p>
+            <p><a href="index.php">Domov</a></p>
+            <p><a href="qna.php">Q&A</a></p>
+            <p><a href="kontakt.php">Kontakt</a></p>
         </div>
         <div class="col-25">
             <h4>Nájdete nás</h4>
@@ -23,6 +22,6 @@
         </div>
     </div>
     <div class="row">
-        Created and designed by Lívia
+        Created and designed by Lívia (Thank you Livia)
     </div>
 </footer>

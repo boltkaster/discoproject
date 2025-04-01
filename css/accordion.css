@@ -2,15 +2,15 @@
     display:none;
 }
 .question{
-    background-color:#f7f7f7;
-    color:black;
+    background-color:black;
+    color:white;
     padding:2%;
 }
 
 .accordion.active .answer{
     display:block;
-    background-color:#f7f7f7;
-    color:black;
+    background-color:darkslategrey;
+    color:white;
     padding:2%;
 }
 
@@ -20,7 +20,7 @@
 
 .question:hover, 
 .accordion.active .question{
-    background-color:#bfbcbc;
+    background-color:#121212;
     cursor:pointer;
 }
 
