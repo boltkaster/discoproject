@@ -4,7 +4,7 @@
 }
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #121212;
+  background-color: #121212; /*/ Black /*/
   color: #e0e0e0;
 }
 /*ŠTÝLY PRE FONTY*/
@@ -44,7 +44,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; /*/ Black /*/
   z-index: 1; 
   max-width: 100%;
   color: #ffffff;
@@ -69,7 +69,7 @@ header{
 .container{
   padding:3% 10% 3% 10%;
   color:white;
-  background-color: #1a1a1a !important;
+  background-color: #1a1a1a !important; /*/ Black /*/
   text-shadow: 2px 2px 2px black;
 }
 .row{
@@ -170,7 +170,7 @@ footer p a{
   .main-menu.responsive {
     display: block;
     position: absolute;
-    background-color: #121212;
+    background-color: #121212; /*/ Black /*/
     width:100%;
     top:60px;
     left:0px;
