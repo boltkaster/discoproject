@@ -32,7 +32,7 @@ require_once 'components/header.php';
       ?>
       <section class="container">
           <?php if (!empty($qnaItems)): ?> <!-- This ust basically checks if there even anything to display -->
-              <?php foreach ($qnaItems as $item): ?> <!--Iterates through each item -->
+              <?php foreach ($qnaItems as $item): ?> <!--Itera tes through each item -->
                   <div class="accordion">
                       <div class="question"><?= htmlspecialchars($item['question']) ?></div>
                       <div class="answer"><?= htmlspecialchars($item['answer']) ?></div>
