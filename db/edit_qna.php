@@ -3,11 +3,12 @@ require 'db.php';
 require '../qnaManager.php';
 
 // Initialize Database and QnaManager objects
-$db = new Database('localhost', 'crud', 'root', '');
+$db = new Database('localhost', 'formular', 'root', '');
 $qnaManager = new QnaManager($db);
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Use QnaManager to update the Q&A entry
     $qnaManager->updateQna($_POST['id'], $_POST['question'], $_POST['answer']);
     header("Location: ../qna.php");
     exit();
@@ -32,10 +33,10 @@ $item = $qnaManager->getQnaById($_GET['id']);
         <input type="hidden" name="id" value="<?= $item['id'] ?>">
 
         <label for="question">Question:</label>
-        <textarea name="question" required><?= htmlspecialchars($item['question']) ?></textarea>
+        <textarea id="question" name="question" required><?= htmlspecialchars($item['question']) ?></textarea>
 
         <label for="answer">Answer:</label>
-        <textarea name="answer" required><?= htmlspecialchars($item['answer']) ?></textarea>
+        <textarea id="answer" name="answer" required><?= htmlspecialchars($item['answer']) ?></textarea>
 
         <div class="buttons">
             <button type="submit">Update</button>

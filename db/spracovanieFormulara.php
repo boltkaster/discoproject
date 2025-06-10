@@ -1,7 +1,7 @@
 
 <?php
 require 'db.php';
-require 'FormHandler.php';
+require 'formHandler.php';
 
 // Initialize Database and FormHandler
 $db = new Database('localhost', 'formular', 'root', '');
@@ -21,4 +21,4 @@ if ($formHandler->saveFormData($_POST['meno'], $_POST['email'], $_POST['sprava']
     echo "Failed to save form data.";
 }
 ?>
-?>  
+?>

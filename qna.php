@@ -3,7 +3,7 @@
 require 'db/db.php';
 
 // Initialize Database object and get PDO connection
-$db = new Database('localhost', 'crud', 'root', '');
+$db = new Database('localhost', 'formular', 'root', '');
 $pdo = $db->getConnection();
 
 // Fetch Q&A items
@@ -60,8 +60,8 @@ $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
     <section class="container">
         <form method="post" class="qna-form">
             <h3>Pridať novú otázku</h3>
-            <textarea name="question" placeholder="Vaša otázka" required></textarea>
-            <textarea name="answer" placeholder="Odpoveď" required></textarea>
+            <textarea id="question" name="question" placeholder="Vaša otázka" required></textarea>
+            <textarea id="question" name="answer" placeholder="Odpoveď" required></textarea>
             <button type="submit" name="add_question">Odoslať Q&A</button>
         </form>
     </section>
