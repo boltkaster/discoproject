@@ -1,19 +1,20 @@
 <?php
 require 'db.php';
+require '../qnaManager.php';
 
+// Initialize Database and QnaManager objects
 $db = new Database('localhost', 'crud', 'root', '');
-$pdo = $db->getConnection();
+$qnaManager = new QnaManager($db);
 
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $stmt = $pdo->prepare("UPDATE qna SET question = ?, answer = ? WHERE id = ?");
-    $stmt->execute([$_POST['question'], $_POST['answer'], $_POST['id']]);
+    $qnaManager->updateQna($_POST['id'], $_POST['question'], $_POST['answer']);
     header("Location: ../qna.php");
     exit();
 }
 
-$stmt = $pdo->prepare("SELECT * FROM qna WHERE id = ?");
-$stmt->execute([$_GET['id']]);
-$item = $stmt->fetch();
+// Fetch Q&A item by ID
+$item = $qnaManager->getQnaById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

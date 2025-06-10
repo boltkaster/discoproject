@@ -1,14 +1,15 @@
 <?php
 require 'db.php';
+require '../qnaManager.php';
 
+// Initialize Database and QnaManager objects
 $db = new Database('localhost', 'crud', 'root', '');
-$pdo = $db->getConnection();
+$qnaManager = new QnaManager($db);
 
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $stmt = $pdo->prepare("DELETE FROM qna WHERE id = ?");
-    $stmt->execute([$_POST['id']]);
+    $qnaManager->deleteQna($_POST['id']);
+    header("Location: ../qna.php");
+    exit();
 }
-
-header("Location: ../qna.php");
-exit();
 ?>
