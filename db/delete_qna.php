@@ -1,6 +1,6 @@
 <?php
 require 'db.php';
-require '../qnaManager.php';
+require 'qnaHandler.php';
 
 // Initialize Database and QnaManager objects
 $db = new Database('localhost', 'formular', 'root', '');

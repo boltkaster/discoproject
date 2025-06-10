@@ -1,21 +1,13 @@
 <?php
-require 'db.php';
-require '../qnaManager.php';
+require_once __DIR__ . '/../controllers/QnaController.php';
 
-// Initialize Database and QnaManager objects
-$db = new Database('localhost', 'formular', 'root', '');
-$qnaManager = new QnaManager($db);
+$qnaController = new QnaController();
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Use QnaManager to update the Q&A entry
-    $qnaManager->updateQna($_POST['id'], $_POST['question'], $_POST['answer']);
-    header("Location: ../qna.php");
-    exit();
+    $qnaController->edit($_POST['id'], $_POST);
+} else {
+    $item = $qnaController->edit($_GET['id']);
 }
-
-// Fetch Q&A item by ID
-$item = $qnaManager->getQnaById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
