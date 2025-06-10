@@ -1,21 +1,24 @@
+
 <?php
 require 'db.php';
+require 'FormHandler.php';
 
-// Initialize Database object
+// Initialize Database and FormHandler
 $db = new Database('localhost', 'formular', 'root', '');
-$pdo = $db->getConnection();
+$formHandler = new FormHandler($db);
 
-$meno = $_POST["meno"];
-$email = $_POST["email"];
-$sprava = $_POST["sprava"];
+// Validate form inputs
+$error = $formHandler->validateForm($_POST, ['meno', 'email', 'sprava']);
+if ($error) {
+    echo $error; // Display validation error
+    exit();
+}
 
-$sql = "INSERT INTO udaje (meno, email, sprava) VALUES (?, ?, ?)";
-$statement = $pdo->prepare($sql);
-try {
-    $insert = $statement->execute([$meno, $email, $sprava]);
+// Save form data to the database
+if ($formHandler->saveFormData($_POST['meno'], $_POST['email'], $_POST['sprava'])) {
     header("Location: http://localhost/discoproject/thankyou.php");
-    return $insert;
-} catch (Exception $exception) {
-    return false;
+} else {
+    echo "Failed to save form data.";
 }
 ?>
+?>  
