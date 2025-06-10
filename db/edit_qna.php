@@ -19,7 +19,7 @@ $item = $stmt->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Q&A</title>
-    <link rel="stylesheet" href="css/edit_qna.css">
+    <link rel="stylesheet" href="../css/edit_qna.css">
 </head>
 <body>
 
@@ -36,7 +36,7 @@ $item = $stmt->fetch();
 
         <div class="buttons">
             <button type="submit">Update</button>
-            <a href="qna.php" class="cancel">Cancel</a>
+            <a href="../qna.php" class="cancel">Cancel</a>
         </div>
     </form>
 </div>

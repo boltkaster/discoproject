@@ -29,18 +29,18 @@
     </section>
 
     <?php
-    require_once 'db.php';
-    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_question'])) {
-        try {
-            $stmt = $pdo->prepare("INSERT INTO qna (question, answer) VALUES (?, ?)");
+    require_once 'db/db.php'; // Includes the database connection file. This file likely establishes a connection to the database using PDO.
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_question'])) {     // Handles form submissions for adding new Q&A items.
+        try {  // Prepares an SQL statement to insert a new question and answer into the Q&A table.
+            $stmt = $pdo->prepare("INSERT INTO qna (question, answer) VALUES (?, ?)"); // Executes the statement with the user-submitted data, ensuring that it is sanitized using htmlspecialchars.
             $stmt->execute([
                 htmlspecialchars($_POST['question']),
                 htmlspecialchars($_POST['answer'])
             ]);
-            header("Location: " . $_SERVER['PHP_SELF']);
+            header("Location: " . $_SERVER['PHP_SELF']);           // Redirects the user back to the current page after a successful submission.
             exit();
         } catch (PDOException $e) {
-            echo "<div class='error'>Chyba: " . $e->getMessage() . "</div>";
+            echo "<div class='error'>Chyba: " . $e->getMessage() . "</div>";   // Displays an error message in case of a database error.
         }
     }
     ?>
@@ -58,18 +58,22 @@
     <!-- Q&A List -->
     <section class="container">
         <?php
+        // Fetches all Q&A items from the database, ordering them by ID in descending order.
         $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
         ?>
 
         <?php if (!empty($qnaItems)): ?>
             <?php foreach ($qnaItems as $item): ?>
+                <!-- Displays each Q&A item using an accordion-style layout -->
                 <div class="accordion">
                     <div class="question"><?= htmlspecialchars($item['question']) ?></div>
                     <div class="answer">
                         <?= htmlspecialchars($item['answer']) ?>
                         <div class="qna-actions">
-                            <a href="edit_qna.php?id=<?= $item['id'] ?>">Upraviť</a>
-                            <form action="delete_qna.php" method="post" style="display: inline;">
+                            <!-- Provides an option to edit the Q&A item -->
+                            <a href="db/edit_qna.php?id=<?= $item['id'] ?>">Upraviť</a>
+                            <!-- Provides an option to delete the Q&A item -->
+                            <form action="db/delete_qna.php" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $item['id'] ?>">
                                 <button type="submit" onclick="return confirm('Naozaj chcete vymazať túto položku?')">Vymazať</button>
                             </form>
@@ -78,6 +82,7 @@
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
+            <!-- Displays a message if there are no Q&A items -->
             <div class="accordion">
                 <div class="question">Momentálne žiadne otázky</div>
                 <div class="answer">Skontrolujte neskôr alebo nám napíšte svoju otázku.</div>
