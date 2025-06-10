@@ -1,10 +1,13 @@
 <?php
 require 'db.php';
 
+$db = new Database('localhost', 'crud', 'root', '');
+$pdo = $db->getConnection();
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $pdo->prepare("UPDATE qna SET question = ?, answer = ? WHERE id = ?");
     $stmt->execute([$_POST['question'], $_POST['answer'], $_POST['id']]);
-    header("Location: qna.php");
+    header("Location: ../qna.php");
     exit();
 }
 
@@ -12,7 +15,6 @@ $stmt = $pdo->prepare("SELECT * FROM qna WHERE id = ?");
 $stmt->execute([$_GET['id']]);
 $item = $stmt->fetch();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

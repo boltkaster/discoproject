@@ -1,3 +1,14 @@
+<?php
+// Fetches all Q&A items from the database, ordering them by ID in descending order.
+require 'db/db.php';
+
+// Initialize Database object and get PDO connection
+$db = new Database('localhost', 'crud', 'root', '');
+$pdo = $db->getConnection();
+
+// Fetch Q&A items
+$qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -57,10 +68,6 @@
 
     <!-- Q&A List -->
     <section class="container">
-        <?php
-        // Fetches all Q&A items from the database, ordering them by ID in descending order.
-        $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
-        ?>
 
         <?php if (!empty($qnaItems)): ?>
             <?php foreach ($qnaItems as $item): ?>
