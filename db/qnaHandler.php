@@ -1,6 +1,17 @@
 <?php
 
+// Qna entity class
+class Qna {
+    public $id;
+    public $question;
+    public $answer;
 
+    public function __construct($id, $question, $answer) {
+        $this->id = $id;
+        $this->question = $question;
+        $this->answer = $answer;
+    }
+}
 class QnaManager
 {
     private $db;
