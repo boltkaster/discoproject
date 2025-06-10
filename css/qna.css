@@ -1,0 +1,113 @@
+.qna-form {
+    background: #0e0e0e;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.qna-form h3 {
+    margin-top: 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.qna-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #c58234;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.qna-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.qna-form button {
+    background-color: #c58234;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.qna-form button:hover {
+    background-color: #45a049;
+}
+
+/* Q&A Actions Styling */
+.qna-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.qna-actions a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.qna-actions a:hover {
+    background-color: #0b7dda;
+}
+
+.qna-actions button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.qna-actions button:hover {
+    background-color: #da190b;
+}
+
+.error {
+    color: #f44336;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .qna-form {
+        padding: 15px;
+    }
+
+    .qna-actions {
+        text-align: center;
+    }
+
+    .qna-actions a,
+    .qna-actions button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+}
