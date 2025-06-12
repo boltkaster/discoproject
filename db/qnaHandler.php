@@ -18,20 +18,19 @@ class QnaManager
 
     public function __construct(Database $database)
     {
-        $this->db = $database->getConnection(); // Stores the database connection inside the $db variable.
+        $this->db = $database->getConnection();
     }
 
     public function getQnaById($id)
     {
-        // Prepare an SQL query to select a Q&A entry by ID.
-        $stmt = $this->db->prepare("SELECT * FROM qna WHERE id = ?"); // PDO query, is a placeholder for ID
-        $stmt->execute([$id]); // Uses ID, which we got as an argument
-        return $stmt->fetch(); // returns the first row, if nothing - false.
+        $stmt = $this->db->prepare("SELECT * FROM qna WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch();
     }
 
     public function updateQna($id, $question, $answer):bool
     {
-        $stmt = $this->db->prepare("UPDATE qna SET question = ?, answer = ? WHERE id = ?"); // PDO query, the same as the ast one but with UPDATE
+        $stmt = $this->db->prepare("UPDATE qna SET question = ?, answer = ? WHERE id = ?");
         return $stmt->execute([$question, $answer, $id]);
     }
 

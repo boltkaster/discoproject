@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controllers/QnaController.php';
+require_once __DIR__ . '/../controllers/qnaController.php';
 
 $qnaController = new QnaController();
 

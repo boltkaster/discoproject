@@ -10,7 +10,6 @@ class QnaController {
         $this->qnaManager = new QnaManager($db);
     }
 
-    // Show the edit form, or handle the update
     public function edit($id, $postData = null) {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && $postData) {
             $this->qnaManager->updateQna($postData['id'], $postData['question'], $postData['answer']);

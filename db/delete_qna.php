@@ -1,16 +1,8 @@
-<?php
-require 'db.php';
-require 'qnaHandler.php';
+    <?php
+require_once __DIR__ . '/../controllers/qnaController.php';
 
-// Initialize Database and QnaManager objects
-$db = new Database('localhost', 'formular', 'root', '');
-$qnaManager = new QnaManager($db);
+$qnaController = new QnaController();
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Use QnaManager to delete the Q&A entry by ID
-    $qnaManager->deleteQna($_POST['id']);
-    // Redirect to the Q&A page after deletion
-    header("Location: ../qna.php");
-    exit();
+if (isset($_POST['id'])) {
+    $qnaController->delete($_POST['id']);
 }

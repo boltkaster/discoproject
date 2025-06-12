@@ -1,12 +1,9 @@
 <?php
-// Fetches all Q&A items from the database, ordering them by ID in descending order.
 require 'db/db.php';
 
-// Initialize Database object and get PDO connection
 $db = new Database('localhost', 'formular', 'root', '');
 $pdo = $db->getConnection();
 
-// Fetch Q&A items
 $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -40,18 +37,18 @@ $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
     </section>
 
     <?php
-    require_once 'db/db.php'; // Includes the database connection file. This file likely establishes a connection to the database using PDO.
-    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_question'])) {     // Handles form submissions for adding new Q&A items.
-        try {  // Prepares an SQL statement to insert a new question and answer into the Q&A table.
-            $stmt = $pdo->prepare("INSERT INTO qna (question, answer) VALUES (?, ?)"); // Executes the statement with the user-submitted data, ensuring that it is sanitized using htmlspecialchars.
+    require_once 'db/db.php';
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_question'])) {
+        try {
+            $stmt = $pdo->prepare("INSERT INTO qna (question, answer) VALUES (?, ?)");
             $stmt->execute([
                 htmlspecialchars($_POST['question']),
                 htmlspecialchars($_POST['answer'])
             ]);
-            header("Location: " . $_SERVER['PHP_SELF']);           // Redirects the user back to the current page after a successful submission.
+            header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } catch (PDOException $e) {
-            echo "<div class='error'>Chyba: " . $e->getMessage() . "</div>";   // Displays an error message in case of a database error.
+            echo "<div class='error'>Chyba: " . $e->getMessage() . "</div>";
         }
     }
     ?>
@@ -61,7 +58,7 @@ $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
         <form method="post" class="qna-form">
             <h3>Pridať novú otázku</h3>
             <textarea id="question" name="question" placeholder="Vaša otázka" required></textarea>
-            <textarea id="question" name="answer" placeholder="Odpoveď" required></textarea>
+            <textarea id="answer" name="answer" placeholder="Odpoveď" required></textarea>
             <button type="submit" name="add_question">Odoslať Q&A</button>
         </form>
     </section>
@@ -71,15 +68,12 @@ $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
 
         <?php if (!empty($qnaItems)): ?>
             <?php foreach ($qnaItems as $item): ?>
-                <!-- Displays each Q&A item using an accordion-style layout -->
                 <div class="accordion">
                     <div class="question"><?= htmlspecialchars($item['question']) ?></div>
                     <div class="answer">
                         <?= htmlspecialchars($item['answer']) ?>
                         <div class="qna-actions">
-                            <!-- Provides an option to edit the Q&A item -->
                             <a href="db/edit_qna.php?id=<?= $item['id'] ?>">Upraviť</a>
-                            <!-- Provides an option to delete the Q&A item -->
                             <form action="db/delete_qna.php" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $item['id'] ?>">
                                 <button type="submit" onclick="return confirm('Naozaj chcete vymazať túto položku?')">Vymazať</button>
@@ -89,7 +83,6 @@ $qnaItems = $pdo->query("SELECT * FROM qna ORDER BY id DESC")->fetchAll();
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <!-- Displays a message if there are no Q&A items -->
             <div class="accordion">
                 <div class="question">Momentálne žiadne otázky</div>
                 <div class="answer">Skontrolujte neskôr alebo nám napíšte svoju otázku.</div>
